@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Store.Domain.Entities.Supplier> 
+@using Store.Resourses.Supplier;
+@using Store.Resourses.Supplier;
+@{
+    ViewBag.Title = SupplierStrings.suppliers_list;
+}
+@foreach (var s in Model)
+{
+    <div class="list_item">
+        <table>
+            <tr>
+                <td>
+                    @SupplierStrings.CompanyName :
+                </td>
+                <td>
+                    @s.CompanyName
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @SupplierStrings.ContactName
+                </td>
+                <td>
+                    @s.ContactName
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @SupplierStrings.CompanyName
+                </td>
+                <td>
+                    @s.CompanyName
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @SupplierStrings.Region
+                </td>
+                <td>
+                    @s.Region
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @SupplierStrings.Phone
+                </td>
+                <td>
+                    @s.Phone
+                </td>
+            </tr>
+        </table>
+        @{        
+    using (Html.BeginForm("DeleteSupplier", "Admin", new { app_culture = ViewContext.RouteData.Values["app_culture"] }))
+    {
+            @Html.Hidden("supplierID", s.SupplierID);
+            <input type="submit" value="@Store.Resourses.Views.Admin.AdminStrings.Delete" class = "post_form_button"/>
+    }
+    using (Html.BeginForm("BeginEditSupplier", "Admin", new { app_culture = ViewContext.RouteData.Values["app_culture"] }))
+    {
+            @Html.Hidden("supplierID", s.SupplierID);
+            <input type="submit" value="@Store.Resourses.Views.Admin.AdminStrings.Edit" class = "post_form_button"/>
+    }
+        }
+    </div>
+}

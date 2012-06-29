@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Store.Domain.Entities.Shipper>
+@using Store.Resourses.Shipper;
+
+@{
+    ViewBag.Title = ShipperStrings.ShippersList;
+}
+
+
+@foreach (var s in Model)
+{
+    <div class="list_item">
+        <table>
+            <tr>
+                <td>
+                    @ShipperStrings.CompanyName :
+                </td>
+                <td>
+                    @s.CompanyName
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @ShipperStrings.Phone :
+                </td>
+                <td>
+                    @s.Phone
+                </td>
+            </tr>
+        </table>
+        @{        
+    using (Html.BeginForm("DeleteShipper", "Admin", new { app_culture = ViewContext.RouteData.Values["app_culture"] }))
+    {
+            @Html.Hidden("ShipperID", s.ShipperID);
+            <input type="submit" value="@Store.Resourses.Views.Admin.AdminStrings.Delete" class = "post_form_button"/>
+    }
+    using (Html.BeginForm("BeginEditShipper", "Admin", new { app_culture = ViewContext.RouteData.Values["app_culture"] }))
+    {
+            @Html.Hidden("ShipperID", s.ShipperID);
+            <input type="submit" value="@Store.Resourses.Views.Admin.AdminStrings.Edit" class = "post_form_button"/>
+    }
+        }
+    </div>
+}

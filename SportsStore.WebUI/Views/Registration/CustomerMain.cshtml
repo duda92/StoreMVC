@@ -1,0 +1,53 @@
+﻿@model Store.WebUI.Models.CustomerMainViewModel
+@using Store.Resourses.Registration
+@{
+    ViewBag.Title = @RegistrationStrings.CustomerRegistration;
+}
+@using (Html.BeginForm("CustomerMain", "Registration", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, FormMethod.Post))
+{
+         @Html.ValidationSummary(true, RegistrationStrings.CreatingAccontErrorsExist)
+        <div>
+            <fieldset>
+                <legend>@RegistrationStrings.Customer_main_register_customer_info</legend>
+                
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.CustomerID)  
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.CustomerID)  
+                    @Html.ValidationMessageFor(m => m.CustomerID)  
+                </div>
+                
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.CompanyName)  
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.CompanyName)  
+                    @Html.ValidationMessageFor(m => m.CompanyName)  
+                </div>
+                
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.ContactName)  
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.ContactName)  
+                    @Html.ValidationMessageFor(m => m.ContactName)  
+                </div>       
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.ContactTitle)  
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.ContactTitle)  
+                    @Html.ValidationMessageFor(m => m.ContactTitle)  
+                </div>       
+
+            </fieldset>
+        </div>
+    
+    <p>
+        @Html.ActionLink(RegistrationStrings.Back, "UserRegistration", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "post_form_button" })
+        <input type="submit" value="@RegistrationStrings.Next" class="post_form_button"/>
+    </p>
+}  

@@ -1,0 +1,54 @@
+﻿@model Store.Domain.Entities.Product
+
+@using Store.Resourses.Views.Admin
+
+@{
+    if (Model.ProductID == 0){
+        <h2 class="title half_title">@AdminStrings.create_new_product</h2>
+        ViewBag.Title = @AdminStrings.create_new_product;  
+    }
+    else {
+         <h2 class="title half_title">@AdminStrings.edit_product</h2> 
+            ViewBag.Title = @AdminStrings.edit_product;
+    }                                                                  
+}
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm("EditProduct", "Admin", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{ 
+   <div class="editor-field"> @Html.HiddenFor(model => model.ProductID)</div>    
+   
+    <div class="editor-label"> @Html.LabelFor(model => model.ProductName)</div>
+    <div class="editor-field"> @Html.TextBoxFor(model => model.ProductName)
+    @Html.ValidationMessageFor(m => m.ProductName)</div>
+   
+    <div class="editor-label"> @Html.LabelFor(model => model.Description)</div>   
+    <div class="editor-label"> @Html.TextAreaFor(model => model.Description)
+    @Html.ValidationMessageFor(m => m.Description)</div>
+   
+    <div class="editor-label"> @Html.LabelFor(model => model.UnitPrice)</div>       
+    <div class="editor-field"> @Html.EditorFor(model => model.UnitPrice)
+
+    @Html.ValidationMessageFor(m => m.UnitPrice)</div>
+    
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.QuantityPerUnit)</div>       
+    <div class="editor-label"> @Html.EditorFor(model => model.QuantityPerUnit)
+    @Html.ValidationMessageFor(m => m.QuantityPerUnit)</div>
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.CategoryID)</div>       
+    @Html.DropDownListFor(x => x.CategoryID, new SelectList(ViewBag.Categories, "CategoryID", "CategoryName"))
+    //@Html.ValidationMessageFor(m => m.CategoryID)
+   
+    <div class="editor-label"> @Html.LabelFor(model => model.SupplierID)</div>       
+    @Html.DropDownListFor(x => x.SupplierID, new SelectList(ViewBag.Suppliers, "SupplierID", "CompanyName"))
+    //@Html.ValidationMessageFor(m => m.SupplierID)
+
+    <input type="file" name="VideoImage" id="VideoImage" class="post_form_button"/> 
+    
+    <div><input type="submit" value="@AdminStrings.Save" class = "post_form_button"/>
+
+    @Html.ActionLink(@AdminStrings.Cancel, "Home", "Admin", null, new { @class = "post_form_button" })</div>
+
+}

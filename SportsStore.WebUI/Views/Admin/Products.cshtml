@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Store.Domain.Entities.Product>
+@using Store.Resourses.Views.Admin
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 id="title">@AdminStrings.All_products</h1>
+
+<p>
+    @Html.ActionLink(@AdminStrings.Create_New, "AddNewProduct", "Admin", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "post_form_button" })
+</p>
+
+<table class="grid">
+    <tr>
+        <th class="name_column">
+            @AdminStrings.Name
+        </th>
+        <th class="description_column">
+            @AdminStrings.Description
+        </th>
+        <th class="image_column">
+            @AdminStrings.Image
+        </th>
+        <th class="price_column">
+            @AdminStrings.Price
+        </th>
+        <th class="actions_column">
+            @AdminStrings.Actions
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td class="description_column">
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td  class="image_column" >
+        @Html.Image(item.Image, 80, 80)
+        </td  >
+        <td class="price_column">
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @using (Html.BeginForm("BeginEditProduct", "Admin", new { app_culture = ViewContext.RouteData.Values["app_culture"] }))
+            {
+                 @Html.Hidden("productID", item.ProductID);
+                 <input type="submit" value="@AdminStrings.Edit" class = "post_form_button"/>
+            }
+            @using (Html.BeginForm("DeleteProduct", "Admin", new { app_culture = ViewContext.RouteData.Values["app_culture"] }))
+            {
+                 @Html.Hidden("productID", item.ProductID);
+                 <input type="submit" value="@AdminStrings.Delete" class = "post_form_button"/>
+            }
+            
+        </td>
+        
+    </tr>
+}
+</table>

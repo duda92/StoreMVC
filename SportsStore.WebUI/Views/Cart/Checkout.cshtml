@@ -1,0 +1,55 @@
+﻿@model Store.Domain.Entities.Order
+@using Store.Resourses.Views.Cart
+
+@{
+    ViewBag.Title = @CartStrings.Checkout;
+}
+
+<h2>@CartStrings.Checkout_now</h2>
+@CartStrings.Enter_details_message
+@using (Html.BeginForm("Checkout", "Cart", new { app_culture = ViewContext.RouteData.Values["app_culture"] }))
+{
+    @Html.ValidationSummary()
+    
+    @Html.LabelFor(m => m.ShipCountry)<br />
+    @Html.EditorFor(m => m.ShipCountry)
+    @Html.ValidationMessageFor(m => m.ShipCountry)
+    
+    <br />
+    @Html.LabelFor(m => m.ShipCity)<br />
+    @Html.EditorFor(m => m.ShipCity)
+    @Html.ValidationMessageFor(m => m.ShipCity)
+    <br />
+
+    @Html.LabelFor(m => m.ShipAddress)<br />
+    @Html.EditorFor(m => m.ShipAddress)
+    @Html.ValidationMessageFor(m => m.ShipAddress)
+    <br />
+
+    @Html.LabelFor(m => m.ShipRegion)<br />
+    @Html.EditorFor(m => m.ShipRegion)
+    @Html.ValidationMessageFor(m => m.ShipRegion)
+    <br />
+
+    @Html.LabelFor(m => m.ShipperID)<br />
+    @Html.DropDownListFor(m => m.ShipperID, new SelectList(ViewBag.Shippers, "ShipperID", "CompanyName"))
+    <br />
+
+    Model.OrderDate = DateTime.Now;
+    @Html.LabelFor(m => m.OrderDate)<br />
+    @Html.TextBoxFor(m => m.OrderDate, new { @readonly = true })
+    <br />
+
+    @Html.LabelFor(m => m.RequiredDate)<br />
+    @Html.EditorFor(m => m.RequiredDate)
+    @Html.ValidationMessageFor(m => m.RequiredDate)
+    <br />
+
+    @Html.LabelFor(m => m.CustomerID)<br />
+    @Html.TextBoxFor(m => m.CustomerID, new { @readonly = true })
+    <br />
+    
+   <p align="center">
+       <input type="submit" value="@CartStrings.Complete_order" class="post_form_button" />
+   </p>
+}

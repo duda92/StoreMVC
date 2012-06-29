@@ -1,0 +1,19 @@
+﻿@using Store.Resourses.Views.Account;
+
+@{
+    ViewBag.Title = "LoginPanel";
+    Layout = null;
+}
+
+    @if (!User.Identity.IsAuthenticated)
+    {  
+        @Html.ActionLink(@AccountStrings.Log_On, "LogOn", "Account", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new {@class = "login_panel_item"}) @:&nbsp           
+        @Html.ActionLink(AccountStrings.Registration, "UserRegistration", "Registration", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new {@class = "login_panel_item"});
+    }
+    else
+    {
+        <span class="login_panel_item">@AccountStrings.You_are_loggined_as @User.Identity.Name </span> @:&nbsp                                                                            
+        @Html.ActionLink(AccountStrings.Logout, "LogOut", "Account", new { app_culture = ViewContext.RouteData.Values["app_culture"], returnUrl = Request.Url }, new {@class = "login_panel_item"});
+    }
+
+

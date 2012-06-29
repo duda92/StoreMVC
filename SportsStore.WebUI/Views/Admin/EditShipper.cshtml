@@ -1,0 +1,35 @@
+﻿@model Store.Domain.Entities.Shipper
+@using Store.Resourses.Shipper;
+@using Store.Resourses.Views.Admin
+
+@{
+    if (Model.ShipperID == 0){
+        <h2 class="title half_title">@ShipperStrings.AddNewShipper</h2>
+        ViewBag.Title = ShipperStrings.AddNewShipper;      
+    }
+    else {
+         <h2 class="title half_title">@ShipperStrings.EditShipper</h2> 
+        ViewBag.Title = ShipperStrings.EditShipper;
+    }                                                                  
+}
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{ 
+   <div class="editor-field"> @Html.HiddenFor(model => model.ShipperID)</div>    
+   
+    <div class="editor-label"> @Html.LabelFor(model => model.CompanyName)</div>       
+    <div class="editor-field"> @Html.EditorFor(model => model.CompanyName)
+    @Html.ValidationMessageFor(m => m.CompanyName)</div>
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.Phone)</div>       
+    <div class="editor-label"> @Html.EditorFor(model => model.Phone)
+    @Html.ValidationMessageFor(m => m.Phone)</div>
+    
+    
+    <div><input type="submit" value="@AdminStrings.Save" class = "post_form_button"/>
+
+    @Html.ActionLink(@AdminStrings.Cancel, "Home", "Admin", null, new { @class = "post_form_button" })</div>
+
+}

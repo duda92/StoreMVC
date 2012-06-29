@@ -1,0 +1,10 @@
+﻿@using Store.Resourses.Views.Shared
+<div>
+
+    @using (Html.BeginForm("SearchProduct", "Search", new { app_culture = ViewContext.RouteData.Values["app_culture"]}, FormMethod.Post))
+    {
+        @SharedStrings.Search @:&nbsp <input type="text" id="searchText" name = "searchText"/>
+        <input type="submit" id="submit" value="@SharedStrings.Search" class ="post_form_button"/>  
+    }
+
+</div>

@@ -1,0 +1,71 @@
+﻿@model Store.Domain.Entities.Supplier
+@using Store.Resourses.Supplier
+@using Store.Resourses.Views.Admin
+@{
+    ViewBag.Title = "AddNewSupplier";
+}
+
+@{
+    if (Model.SupplierID == 0){
+        <h2 class="title half_title">@SupplierStrings.add_supplier</h2>  
+    }
+    else {
+         <h2 class="title half_title">@SupplierStrings.edit_supplier</h2> 
+    }                                                                  
+}
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{ 
+   <div class="editor-field"> @Html.HiddenFor(model => model.SupplierID)</div>    
+   
+    <div class="editor-label"> @Html.LabelFor(model => model.CompanyName)</div>       
+    <div class="editor-field"> @Html.EditorFor(model => model.CompanyName)
+    @Html.ValidationMessageFor(m => m.CompanyName)</div>
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.ContactTitle)</div>       
+    <div class="editor-label"> @Html.EditorFor(model => model.ContactTitle)
+    @Html.ValidationMessageFor(m => m.ContactTitle)</div>
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.Address)</div>    
+    <div class="editor-field"> @Html.EditorFor(model => model.Address)
+    @Html.ValidationMessageFor(m => m.Address) </div>
+   
+    <div class="editor-label"> @Html.LabelFor(model => model.City)</div>   
+    <div class="editor-label"> @Html.EditorFor(model => model.City)
+    @Html.ValidationMessageFor(m => m.City)</div>  
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.ContactName)</div>       
+    <div class="editor-label"> @Html.EditorFor(model => model.ContactName)
+    @Html.ValidationMessageFor(m => m.ContactName)</div>
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.Country)</div>       
+    <div class="editor-label"> @Html.EditorFor(model => model.Country)
+    @Html.ValidationMessageFor(m => m.Country)</div>
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.Fax)</div>       
+    <div class="editor-label"> @Html.EditorFor(model => model.Fax)
+    @Html.ValidationMessageFor(m => m.Fax)</div>
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.HomePage)</div>       
+    <div class="editor-label"> @Html.EditorFor(model => model.HomePage)
+    @Html.ValidationMessageFor(m => m.HomePage)</div>
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.Phone)</div> 
+    <div class="editor-label"> @Html.EditorFor(model => model.Phone)
+    @Html.ValidationMessageFor(m => m.Phone)</div>
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.PostalCode)</div> 
+    <div class="editor-label"> @Html.EditorFor(model => model.PostalCode)
+    @Html.ValidationMessageFor(m => m.PostalCode)</div>
+    
+    <div class="editor-label"> @Html.LabelFor(model => model.Region)</div> 
+    <div class="editor-label"> @Html.EditorFor(model => model.Region)
+    @Html.ValidationMessageFor(m => m.Region)</div>
+    
+    <div><input type="submit" value="@SupplierStrings.Save" class = "post_form_button"/>
+
+    @Html.ActionLink(@AdminStrings.Cancel, "Home", "Admin", null, new { @class = "post_form_button" })</div>
+
+}

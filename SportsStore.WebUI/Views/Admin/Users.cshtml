@@ -1,0 +1,139 @@
+﻿@model IEnumerable<Store.Domain.Entities.User>
+@using Store.Resourses.User;
+@using Store.Resourses.Views.Admin;
+@{
+    ViewBag.Title = AdminStrings.users_list;
+    <h2 class="title half_title">@AdminStrings.users_list</h2>                                                                     
+}
+@{
+    foreach (var user in Model)
+    {
+        using (Html.BeginForm())
+        {                                   
+    <div class="list_item">
+        <table>
+            <tr>
+                <td>
+                    Email
+                </td>
+                <td>
+                    @user.Email
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Roles
+                </td>
+                <td>
+                    @if (user.Roles != null)
+                    {
+                        foreach (var role in user.Roles)
+                        {
+                        @Html.Label(role.RoleName) <br />
+                        }
+                    }
+                </td>
+            </tr>
+            @if (user.Customer != null)
+            {
+                <tr>
+                    <td>
+                        CustomerID
+                    </td>
+                    <td>
+                        @user.Customer.CustomerID
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        CompanyName
+                    </td>
+                    <td>
+                        @user.Customer.CompanyName
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ContactName
+                    </td>
+                    <td>
+                        @user.Customer.ContactName
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ContactTitle
+                    </td>
+                    <td>
+                        @user.Customer.ContactTitle
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Address
+                    </td>
+                    <td>
+                        @user.Customer.Address
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        City
+                    </td>
+                    <td>
+                        @user.Customer.City
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Country
+                    </td>
+                    <td>
+                        @user.Customer.Country
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Fax
+                    </td>
+                    <td>
+                        @user.Customer.Fax
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Phone
+                    </td>
+                    <td>
+                        @user.Customer.Phone
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        PostalCode
+                    </td>
+                    <td>
+                        @user.Customer.PostalCode
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Region
+                    </td>
+                    <td>
+                        @user.Customer.Region
+                    </td>
+                </tr>
+                }
+                <tr>
+                <td>
+                    @Html.ActionLink(AdminStrings.Delete, "RemoveUser", "Admin", new { userID = user.UserID, app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "post_form_button" })
+                    @Html.ActionLink(AdminStrings.Edit, "EditUser", "Admin", new { userID = user.UserID, app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "post_form_button" })
+                </td>
+                </tr>
+            
+        </table>
+    </div>
+        }
+    }    
+}

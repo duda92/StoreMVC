@@ -1,0 +1,17 @@
+﻿@model Store.Domain.Entities.Cart
+@using Store.Resourses.Views.Cart
+
+@{
+    Layout = null;   
+}
+
+<div id="cart"  style="min-width: 350px;>
+   <span class="caption">     
+       <b style="font-family:Fantasy; font-variant:12px; font-stretch: ultra-expanded">@CartStrings.Your_cart:</b>
+       @Model.Lines.Sum(x => x.Quantity) @CartStrings.item_s,
+       @Model.ComputeTotalValue().ToString("c")
+   </span>
+   <a href="@Url.Action("Index", "Cart", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, "")" >
+         <img src="@Url.Content("~/Content/cart.png")" width="70px" height="70px" align="absmiddle" alt="@CartStrings.Checkout"/>
+   </a>
+</div>

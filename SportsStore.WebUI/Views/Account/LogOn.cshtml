@@ -1,0 +1,26 @@
+﻿@model Store.WebUI.Models.LogOnModel
+
+@using Store.Resourses.Views.Account
+@{
+    ViewBag.Title = @AccountStrings.LogOn;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<fieldset style="margin: 20px">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        
+        @Html.LabelFor(m => m.UserName) <br />
+        @Html.EditorFor(m => m.UserName)
+        @Html.ValidationMessageFor(m => m.UserName) <br />
+        
+        @Html.LabelFor(m => m.Password) <br />
+        @Html.EditorFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password) <br />
+        
+        <p>
+            <input type="submit" value = "@AccountStrings.Log_On" class="post_form_button"/>
+            @Html.ActionLink(@AccountStrings.Registration, "UserRegistration", "Registration", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "post_form_button" })
+        </p>
+    }
+</fieldset>

@@ -1,0 +1,315 @@
+/*
+body
+{
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+
+// Styles for basic forms
+-----------------------------------------------------------
+
+fieldset 
+{
+    border:1px solid #ddd;
+    padding:0 1.4em 1.4em 1.4em;
+    margin:0 0 1.5em 0;
+}
+
+legend 
+{
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+textarea 
+{
+    min-height: 75px;
+}
+
+.editor-label 
+{
+    margin: 1em 0 0 0;
+}
+
+.editor-field 
+{
+    margin:0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+/*.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}*/
+
+/*body { font-family:Cambria, Georgia, "Times New Roman"; margin: 0;}
+
+div#header div.title div.item H3, div.item h5, div.pager A { font: bold 1em "Arial Narrow"}
+
+div#header {background-color: Black; border-bottom: 2px solid #111; color: White}
+
+div.title {font-size: xx-large;}
+
+div#content {border-left:2px solid gray; margin-left: 9em; padding: 1em }
+*/
+html { 
+	background: url(backgroung.jpg) no-repeat center center fixed; 
+	}
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+.text-box, input[type="text"], textarea, select
+{
+	background: url(rounded.gif) no-repeat top left transparent;
+	height: auto;	
+	min-height: 22px;
+	width: 230px;
+	border: 0;
+	
+	display: inline-block;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    min-width: 200px;
+    outline: 0;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+
+div.header {background-color: #444; border: 2px solid #111; color: White; }
+
+div.title { margin-left: 20px; font-size:xx-large;}
+
+a:hover, input[type="submit"]:hover 
+{
+    border-color:#999999;
+    border-width:1px;
+}
+
+/*categories*/
+div#categories  
+{
+    height:100%; 
+}
+
+div#categories A
+{
+    font: bold 1em "Arial Narrow";
+    font-size: xx-large;
+    border-bottom: 1px solid silver;   
+    text-decoration: none;
+    
+    padding: 20px;
+    display: block;
+    
+    background-color: White;
+    color: #666; 
+}
+
+div#categories a.selected 
+{
+    background-color: #666;
+    color: White;       
+}
+
+/*categories*/
+
+/*item*/
+div.item 
+{
+    border-bottom: 2px dotted Gray;
+    width:100%;
+}
+/*item*/
+
+/*content*/
+div#content 
+{
+    height:100%;
+    width:80%; 
+    border-left: 5px solid;
+    border-color: Gray;
+    padding-left: 20px;
+}
+
+.post_form_button
+{
+    padding: 10px;
+    margin:20px;
+    color: White;
+    background-color: #333;
+    cursor:pointer;
+    border: 1px solid black;    
+    text-decoration:none;
+    width: 200px;
+    
+    border-radius: 15px;
+}
+
+a.post_form_button { display: block; width: 180px; text-align:center; }
+
+#post_form { width:20%; }
+
+#price_label { float:left; }
+
+
+/*content*/
+
+/* Pager */
+div.pager
+{
+    float: right;  
+    margin-top: 20px;  
+}
+
+div.pager a 
+{
+    padding: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+div.pager a.hover 
+{
+    background-color: White; 
+    color:Blue;
+}
+div.pager a.selected 
+{
+    background-color:Blue;
+    color:White;
+}
+/* Pager */
+
+/*Cart*/
+tfoot td {border-top: 1px dotted black; font-weight:bold;}
+#card_title { padding: 20px;}
+#car_table_item { height: 40px;}
+
+#cart_bottom A { color:White; text-decoration:none; float:left;}
+
+#cart {float:right; border: 2px solid #111; padding-left: .5em; padding-right : .5em; background-color: #555; }
+
+.list_item
+{
+    border: medium groove #808080; background-color: #FFFFFF;
+}
+
+#cart
+{
+    text-shadow: 0px 1px 1px #4d4d4d;
+    color: #222;
+    font: 'LeagueGothicRegular';
+
+}
+
+/*Cart*/
+
+.login_panel_item
+{
+    text-decoration:none;
+    font-size:15px;
+    border-left: 1px solid Silver;  
+    padding-left:10px;
+    padding-right:10px;
+    color:#444;
+}
+
+.culture_selector_panel
+{
+    display:block;
+}
+
+.half_title
+{
+    width:30%;    
+}
+
+th
+{
+    color:White;
+    background-color: #333;
+    padding:30px;
+}
+
+.grid
+{
+    width: 100%;
+}
+
+.grid tr td 
+{
+    border-right: 1px dotted Black;
+    border-bottom: 2px solid Silver;
+    padding-left: 30px;
+}
+
+.actions_column, .name_column
+{
+    text-align: left;
+}
+
+.price_column, .image_column
+{
+    text-align: center;    
+    padding-left: 0px;
+}
+
+.description_column
+{
+    padding-left: 50px;
+}
+
+.admin_link
+{
+    padding: 10px;
+    margin:20px;
+    color: White;
+    background-color: #555;
+    cursor:pointer;
+    border: 1px solid black;    
+    text-decoration:none;
+    
+    border-radius: 15px;
+    vertical-align:text-bottom;
+    display: block; width: 100px; height:50px; text-align:center;
+}

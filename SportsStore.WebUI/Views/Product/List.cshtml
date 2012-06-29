@@ -1,0 +1,17 @@
+﻿@model Store.WebUI.Models.ProductListViewModel
+@using Store.Resourses.Product;
+
+@{
+    ViewBag.Title = @ProductStrings.product_list;
+}
+
+@foreach (var p in Model.Products)
+{
+    if (p != null)
+    {
+        Html.RenderPartial("ProductSummary", p);
+    }
+}
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", "Product", new { category = Model.CurrentCategory, page = x }))
+</div>

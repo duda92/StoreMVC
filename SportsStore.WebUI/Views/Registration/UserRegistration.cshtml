@@ -1,0 +1,45 @@
+﻿@model Store.WebUI.Models.UserRegistrationViewModel
+@using Store.Resourses.Registration
+@using Store.Resourses.User
+
+@{
+    ViewBag.Title = RegistrationStrings.UserRegistration;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("UserRegistration", "Registration" ))
+{
+         @Html.ValidationSummary(true, RegistrationStrings.CreatingAccontErrorsExist)
+        <div>
+            <fieldset>
+                <legend>@RegistrationStrings.Account_Information</legend>
+                
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Email)  
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.Email)  
+                    @Html.ValidationMessageFor(m => m.Email)  
+                </div>
+                
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Password, UserStrings.Password)  
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(m => m.Password)  
+                    @Html.ValidationMessageFor(m => m.Password)  
+                </div>
+                
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Password, RegistrationStrings.ConfirmPassword)   
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(m => m.ConfirmPassword)  
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)  
+                </div>               
+                <p>
+                    <input type="submit" value="@RegistrationStrings.Next" class="post_form_button"/>
+                </p>
+            </fieldset>
+        </div>
+} 

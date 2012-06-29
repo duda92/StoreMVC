@@ -1,0 +1,21 @@
+﻿@model Store.WebUI.Models.EditRolesViewModel
+
+@using Store.Resourses.User;
+@using Store.Resourses.Views.Admin;
+
+@{
+    <h2 class="title half_title">@AdminStrings.edit_user</h2>
+    ViewBag.Title = AdminStrings.edit_user;                                                                 
+}
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{ 
+    for (int i = 0; i < Model.IsInRoles.Count; i++)
+    {
+        <h3>@ViewBag.Roles[i].RoleName  @Html.CheckBoxFor(m => m.IsInRoles[i]) <br /></h3>
+    }    
+    <div><input type="submit" value="@AdminStrings.Save" class = "post_form_button"/>
+    @Html.ActionLink(@AdminStrings.Cancel, "Home", "Admin", null, new { @class = "post_form_button" })</div>
+}

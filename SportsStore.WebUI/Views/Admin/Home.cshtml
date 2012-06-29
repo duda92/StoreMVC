@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+@using Store.Resourses.Views.Admin
+
+<br />
+<fieldset title="@AdminStrings.products">
+    <legend>@AdminStrings.products</legend>
+    @Html.ActionLink(AdminStrings.add_product, "AddNewProduct", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+    @Html.ActionLink(AdminStrings.edit_product, "Products", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+    @Html.ActionLink(AdminStrings.remove_product, "Products", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+</fieldset><br />
+
+<fieldset title="@AdminStrings.suppliers">
+    <legend>@AdminStrings.suppliers</legend>
+    @Html.ActionLink(AdminStrings.add_supplier, "AddSupplier", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+    @Html.ActionLink(AdminStrings.edit_supplier, "Suppliers", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+    @Html.ActionLink(AdminStrings.remove_supplier, "Suppliers", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+</fieldset> <br />
+
+
+<fieldset title="@AdminStrings.shippers">
+    <legend>@AdminStrings.shippers</legend>
+    @Html.ActionLink(AdminStrings.add_shipper, "AddShipper", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+    @Html.ActionLink(AdminStrings.edit_shipper, "Shippers", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+    @Html.ActionLink(AdminStrings.remove_shipper, "Shippers", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+</fieldset> <br />
+
+<fieldset title="@AdminStrings.roles_administration">
+    <legend>@AdminStrings.roles_administration</legend>
+    @Html.ActionLink(AdminStrings.roles_administration, "Users", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+</fieldset> <br />
+
+<fieldset title="@AdminStrings.categories">
+    <legend>@AdminStrings.categories</legend>
+    @Html.ActionLink(AdminStrings.add_category, "AddCategory", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+    @Html.ActionLink(AdminStrings.edit_category, "Categories", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+    @Html.ActionLink(AdminStrings.remove_category, "Categories", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "admin_link" })  <br />
+</fieldset> <br />
+

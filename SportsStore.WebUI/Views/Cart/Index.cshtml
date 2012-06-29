@@ -1,0 +1,57 @@
+﻿@model Store.WebUI.Models.CartIndexViewModel
+@using Store.Resourses.Views.Cart
+
+@{
+    ViewBag.Title = @CartStrings.Sports_Store_Your_Cart;
+}
+
+<h2 id = "card_title">@CartStrings.Your_cart</h2>
+
+<table width="90%">
+<thead>
+<tr>
+    <th align="center">
+        @CartStrings.Quantity
+    </th>
+    <th align="left">
+        @CartStrings.Item
+    </th>
+    <th align="right">
+        @CartStrings.Price
+    </th>
+    <th align="right">
+        @CartStrings.Subtotal
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Cart.Lines)
+        {
+             <tr id="car_table_item">
+                <td align="center">@line.Quantity</td>
+                <td align="left">  @line.Product.ProductName</td>
+                <td align="right"> @line.Product.UnitPrice.ToString("c")</td>
+                <td align="right"> @((line.Quantity * line.Product.UnitPrice).ToString("c"))</td>
+                <td>
+                @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                {
+                       @Html.Hidden("ProductId", line.Product.ProductID);
+                       @Html.HiddenFor(x => x.ReturnUrl)
+                       <input class="post_form_button" type="submit" value="@CartStrings.Remove" />
+                }
+                </td>
+             </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td  colspan = "3" align ="right">@CartStrings.Total:</td>
+            <td align="right">    @Model.Cart.ComputeTotalValue().ToString("c");
+            </td>
+        </tr>
+    </tfoot>
+    </table>
+    <p align="center" id="cart_bottom">
+        @Html.ActionLink(CartStrings.Continue_shopping, "List", "Product", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "post_form_button" })
+        @Html.ActionLink(CartStrings.Checkout_now, "Checkout", "Cart", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "post_form_button" })
+   </p>

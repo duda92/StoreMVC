@@ -1,0 +1,108 @@
+﻿@using Store.Resourses.Registration;
+@{
+    ViewBag.Title = RegistrationStrings.Complete_registration;
+}
+<h2>@RegistrationStrings.Complete_registration</h2>
+<table>
+    <tr>
+        <td>
+            Email
+        </td>
+        <td>
+            @ViewBag.Email
+        </td>
+    </tr>
+    <tr>
+        <td>
+            CustomerID
+        </td>
+        <td>
+            @ViewBag.CustomerID
+        </td>
+    </tr>
+    <tr>
+        <td>
+            CompanyName
+        </td>
+        <td>
+            @ViewBag.CompanyName
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ContactName
+        </td>
+        <td>
+            @ViewBag.ContactName
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ContactTitle
+        </td>
+        <td>
+            @ViewBag.ContactTitle
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Address
+        </td>
+        <td>
+            @ViewBag.Address
+        </td>
+    </tr>
+    <tr>
+        <td>
+            City
+        </td>
+        <td>
+            @ViewBag.City
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Country
+        </td>
+        <td>
+            @ViewBag.Country
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Fax
+        </td>
+        <td>
+            @ViewBag.Fax
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Phone
+        </td>
+        <td>
+            @ViewBag.Phone
+        </td>
+    </tr>
+    <tr>
+        <td>
+            PostalCode
+        </td>
+        <td>
+            @ViewBag.PostalCode
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Region
+        </td>
+        <td>
+            @ViewBag.Region
+        </td>
+    </tr>
+</table>
+@using (Html.BeginForm())
+{
+    @Html.ActionLink(RegistrationStrings.Back, "CustomerDetail", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "post_form_button" }) 
+    <input type="submit" value="Ok" class="post_form_button" />   
+}

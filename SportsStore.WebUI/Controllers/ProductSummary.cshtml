@@ -1,0 +1,33 @@
+﻿@model Store.Domain.Entities.Product
+@using System.Drawing
+@using Store.Resourses.Views.Shared
+
+<div class = "item" >
+    <h3>@Model.ProductName</h3>
+    
+    @{
+        if (string.IsNullOrEmpty(Model.Description))
+        {  
+            @Model.ProductName
+        }
+        else
+        {
+            @Model.Description
+        }
+    }
+    <br />
+    
+    @Html.Image(Model.Image, 150, 150)
+
+    <h4 id="price">@SharedStrings.Price: @Model.UnitPrice</h4>
+
+    @{ Html.EnableClientValidation(false); }
+    @using (Html.BeginForm("AddToCart", "Cart", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, FormMethod.Post, new { id = "form" }))
+    {
+
+        @Html.HiddenFor(x => x.ProductID);
+        @Html.Hidden("returnUrl", Request.Url.PathAndQuery);
+        <input type="submit" value="+ @SharedStrings.Add_to_cart" class="post_form_button"/>
+    }
+</div>
+<br/>

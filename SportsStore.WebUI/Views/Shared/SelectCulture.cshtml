@@ -1,0 +1,22 @@
+﻿@using System.Globalization
+    
+        <div id="culture_selector_panel">
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <span style="font-size:x-small; line-height: 33px; font-size:15px;color:#444;">Country</span> 
+           
+     @{
+        var data = new RouteValueDictionary(ViewContext.RouteData.Values);
+        data["app_culture"] = "en";
+      }
+        <a href="@Url.RouteUrl( data)" style=" text-decoration: none;" >
+            <img src="@Url.Content("~/Content/usa.jpg")" align="absmiddle"  alt="Click on a flag to set english culture" border="1px solid black" />
+        </a>
+        
+        &nbsp 
+        @{
+            data["app_culture"] = "ru";
+         }
+        <a href="@Url.RouteUrl(data)" style=" text-decoration: none;" >
+            <img src="@Url.Content("~/Content/rus.jpg")" align="absmiddle" alt="Нажмите, чтобы выбрать русский" border="1px solid black" />
+</a> 
+</div>

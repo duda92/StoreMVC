@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Store.Domain.Entities.Category>
+@using Store.Resourses.Category;
+
+@{
+    ViewBag.Title = CategoryStrings.CategoriesList;
+}
+
+
+@foreach (var c in Model)
+{
+    <div class="list_item">
+        <table>
+            <tr>
+                <td>
+                    @CategoryStrings.category_name :
+                </td>
+                <td>
+                    @c.CategoryName
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @CategoryStrings.description :
+                </td>
+                <td>
+                    @c.Description
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @CategoryStrings.picture :
+                </td>
+                <td>
+                    @Html.Image(c.Picture, 150, 150)
+                </td>
+            </tr>
+        </table>
+        @{        
+    using (Html.BeginForm("DeleteCategory", "Admin", new { app_culture = ViewContext.RouteData.Values["app_culture"] }))
+    {
+            @Html.Hidden("CategoryID", c.CategoryID)
+            <input type="submit" value="@Store.Resourses.Views.Admin.AdminStrings.Delete" class = "post_form_button"/>
+    }
+    using (Html.BeginForm("BeginEditCategory", "Admin", new { app_culture = ViewContext.RouteData.Values["app_culture"] }))
+    {
+            @Html.Hidden("CategoryID", c.CategoryID)
+            <input type="submit" value="@Store.Resourses.Views.Admin.AdminStrings.Edit" class = "post_form_button"/>
+    }
+        }
+    </div>
+}

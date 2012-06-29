@@ -1,0 +1,78 @@
+﻿@model Store.WebUI.Models.CustomerDetailViewModel
+
+@using Store.Resourses.Registration           
+
+@{
+    ViewBag.Title = RegistrationStrings.CustomerDetails;
+}
+
+@using (Html.BeginForm("CustomerDetail", "Registration"))
+{
+         @Html.ValidationSummary(true, RegistrationStrings.CreatingAccontErrorsExist)
+        <div>
+            <fieldset>
+                <legend>@RegistrationStrings.Customer_detail_register_info</legend>
+             <div class="editor-label">
+                    @Html.LabelFor(m => m.Address)  
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.Address)  
+                    @Html.ValidationMessageFor(m => m.Address)  
+                </div>
+                
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.City)  
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.City)  
+                    @Html.ValidationMessageFor(m => m.City)  
+                </div>       
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Country)  
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Country)  
+                    @Html.ValidationMessageFor(m => m.Country)  
+                </div>       
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Fax)  
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Fax)  
+                    @Html.ValidationMessageFor(m => m.Fax)  
+                </div> 
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Phone)  
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Phone)  
+                    @Html.ValidationMessageFor(m => m.Phone)  
+                </div> 
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.PostalCode)  
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.PostalCode)  
+                    @Html.ValidationMessageFor(m => m.PostalCode)  
+                </div> 
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Region)  
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Region)  
+                    @Html.ValidationMessageFor(m => m.Region)  
+                </div> 
+            </fieldset>
+        </div>
+    
+    <p>
+        @Html.ActionLink(RegistrationStrings.Back, "CustomerMain", new { app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = "post_form_button" }) 
+        <input type="submit" value="@RegistrationStrings.Next" class="post_form_button" />       
+    </p>
+}  
+

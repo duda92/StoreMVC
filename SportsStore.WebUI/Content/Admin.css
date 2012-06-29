@@ -1,0 +1,77 @@
+﻿body 
+{
+    /*color:White;
+    background-color: #333;
+*/
+}
+
+#title, .title
+{
+    background-color: #444;
+    border: 2px solid #111;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-bottom: 2px solid #555;
+    padding-left: 30px;
+}
+
+.half_title
+{
+    width:30%;    
+}
+
+th
+{
+    color:White;
+    background-color: #333;
+    padding:30px;
+}
+
+.grid
+{
+    width: 100%;
+}
+
+.grid tr td 
+{
+    border-right: 1px dotted Black;
+    border-bottom: 2px solid Silver;
+    padding-left: 30px;
+}
+
+.actions_column, .name_column
+{
+    text-align: left;
+}
+
+.price_column, .image_column
+{
+    text-align: center;    
+    padding-left: 0px;
+}
+
+.post_form_button
+{
+    margin: 20px;
+    color : White;
+    background-color: #333;
+    cursor:pointer;
+    border: 1px solid black; 
+    text-decoration:none;
+    
+    width: 100px;
+    height: 30px;
+}
+
+a 
+{
+    padding: 10px;
+    margin: 20px;
+    
+}
+
+.description_column
+{
+    padding-left: 50px;
+}

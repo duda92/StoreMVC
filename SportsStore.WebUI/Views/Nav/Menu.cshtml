@@ -1,0 +1,14 @@
+﻿@model IEnumerable<string>
+@using Store.Resourses.Views.Menu;
+
+ @Html.RouteLink(@MenuStrings.Home, new { controller = "Product", action = "List" }) <br/>
+
+@if (User.IsInRole("Admin"))
+{
+     @Html.RouteLink(MenuStrings.Administration, new { controller = "Admin", action = "Home", app_culture = ViewContext.RouteData.Values["app_culture"] }) <br/>
+}
+
+@foreach (var link in Model)
+{
+    @Html.RouteLink(link, new { controller = "Product", action = "List", category = link.TrimEnd(), page = 1, app_culture = ViewContext.RouteData.Values["app_culture"] }, new { @class = link.TrimEnd() == ViewBag.SelectedCategory ? "selected" : null }) <br/>
+}
